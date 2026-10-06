@@ -33,9 +33,17 @@ class MainActivity : ComponentActivity() {
     var cameraPermissionPermanentlyDenied by mutableStateOf(false)
         private set
 
+    /**
+     * 系统对话框正在弹出/等待结果时，不显示 PermissionGate。
+     * 避免冷启动时 gate 画面闪一帧再被对话框盖住的突兀体验。
+     */
+    var cameraPermissionPending by mutableStateOf(false)
+        private set
+
     // 字段初始化时注册，早于 onStart，符合 ActivityResultRegistry 的要求
     private val cameraLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            cameraPermissionPending = false
             cameraGranted = granted
             if (granted) requestLocationIfNeeded()
         }
@@ -55,14 +63,23 @@ class MainActivity : ComponentActivity() {
         // 必须在 setContent 之前读，Compose 第一次组合就要用这两个值决定进不进相机页
         refreshPermissionState()
 
+        // 冷启动时如果相机权限已被回收（Android 14+ "Only this time" 或 OEM 省电策略），
+        // 直接发起系统对话框请求，跳过中间的手动授权页面。
+        if (!cameraGranted) {
+            cameraPermissionPending = true
+            cameraLauncher.launch(Manifest.permission.CAMERA)
+        }
+
         setContent {
             WatermarkCameraTheme {
                 WatermarkCameraRoot(
                     cameraGranted = cameraGranted,
                     locationGranted = locationGranted,
+                    cameraPermissionPending = cameraPermissionPending,
                     cameraPermissionPermanentlyDenied = cameraPermissionPermanentlyDenied,
                     onRequestCameraPermission = {
                         cameraPermissionPermanentlyDenied = false
+                        cameraPermissionPending = true
                         cameraLauncher.launch(Manifest.permission.CAMERA)
                     },
                     onRequestLocationPermission = {

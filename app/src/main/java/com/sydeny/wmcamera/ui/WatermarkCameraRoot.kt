@@ -34,6 +34,7 @@ import com.sydeny.wmcamera.R
 fun WatermarkCameraRoot(
     cameraGranted: Boolean,
     locationGranted: Boolean,
+    cameraPermissionPending: Boolean,
     cameraPermissionPermanentlyDenied: Boolean,
     onRequestCameraPermission: () -> Unit,
     onRequestLocationPermission: () -> Unit,
@@ -63,6 +64,9 @@ fun WatermarkCameraRoot(
             .background(Color.Black),
     ) {
         when {
+            // 系统对话框正在等待结果，保持黑屏不显示任何内容
+            cameraPermissionPending -> Unit
+
             !cameraGranted -> PermissionGate(
                 permanentlyDenied = cameraPermissionPermanentlyDenied,
                 onGrant = onRequestCameraPermission,
