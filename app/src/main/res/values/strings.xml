@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">水印相机</string>
+
+    <string name="permission_camera_title">需要相机权限</string>
+    <string name="permission_camera_body">水印相机需要使用相机来拍摄带水印的照片。</string>
+    <string name="permission_camera_denied_body">相机权限已被拒绝。请到系统设置中手动授予，否则无法拍照。</string>
+    <string name="action_grant">授予权限</string>
+    <string name="action_open_settings">去设置</string>
+    <string name="action_retry">重试</string>
+
+    <string name="location_permission_body">授予定位权限，水印中才会显示经纬度。不授予也能拍照。</string>
+
+    <string name="cd_shutter">拍照</string>
+    <string name="cd_settings">水印设置</string>
+    <string name="cd_flash">闪光灯</string>
+    <string name="cd_switch_camera">切换摄像头</string>
+    <string name="cd_pick_location">选择水印地址</string>
+
+    <string name="pick_location_title">选择水印地址</string>
+    <string name="pick_location_subtitle">默认使用系统推荐项，你可以手动切换。</string>
+    <string name="pick_location_auto">恢复自动匹配</string>
+    <string name="pick_location_empty">暂无可选地址，请稍候或检查网络。</string>
+    <string name="pick_location_badge_default">推荐</string>
+    <string name="pick_location_distance">%1$s</string>
+
+    <string name="toast_saved">已保存到相册</string>
+    <string name="toast_save_failed">保存失败：%1$s</string>
+    <string name="status_locating">定位中…</string>
+    <string name="status_no_permission">定位未授权</string>
+    <string name="status_no_signal">无定位信号</string>
+
+    <string name="camera_error_title">相机启动失败</string>
+    <string name="camera_error_body">%1$s</string>
+
+    <string name="settings_title">水印设置</string>
+    <string name="section_content">水印内容</string>
+    <string name="section_style">样式</string>
+    <string name="section_position">位置</string>
+    <string name="section_capture">拍摄</string>
+
+    <string name="label_enabled">启用水印</string>
+    <string name="label_datetime">日期时间</string>
+    <string name="label_coordinate">GPS 经纬度</string>
+    <string name="label_address">具体地址</string>
+    <string name="label_address_provider">地址解析服务商</string>
+    <string name="provider_amap">高德</string>
+    <string name="provider_tencent">腾讯</string>
+    <string name="label_amap_key">高德 API Key</string>
+    <string name="hint_amap_key">粘贴你在高德开放平台申请的 Web 服务 Key</string>
+    <string name="desc_amap_key">用于逆地理编码到小区/大楼级别。免费申请：https://console.amap.com → 应用管理 → 创建新 Key → 服务平台选"Web 服务"。留空则回退到系统定位（仅到街道级）。</string>
+    <string name="label_tencent_key">腾讯 API Key</string>
+    <string name="hint_tencent_key">粘贴你在腾讯位置服务申请的 WebService Key</string>
+    <string name="desc_tencent_key">用于逆地理编码到小区/大楼级别。免费申请：https://lbs.qq.com → 应用管理 → 创建 Key → 勾选"WebServiceAPI"。留空则回退到系统定位（仅到街道级）。</string>
+    <string name="label_tencent_sk">腾讯 Secret Key (SK)</string>
+    <string name="hint_tencent_sk">如你的 Key 启用了"签名校验"，粘贴对应的 SK</string>
+    <string name="desc_tencent_sk">控制台里给 Key 打开"签名校验"后必须提供 SK，所有请求会用 MD5(path + 排序参数 + SK) 生成 sig 参数附上。若你的 Key 是"白名单/IP 白名单"或"不作校验"，这里留空即可。</string>
+    <string name="label_custom_text">自定义文字</string>
+    <string name="label_logo">Logo 图片</string>
+    <string name="label_text_color">文字颜色</string>
+    <string name="label_text_size">字号</string>
+    <string name="label_background_color">背景颜色</string>
+    <string name="label_background_alpha">背景不透明度</string>
+    <string name="label_position">所在位置</string>
+    <string name="label_haptics">快门震动反馈</string>
+
+    <string name="action_add_line">添加一行</string>
+    <string name="action_remove">删除</string>
+    <string name="action_pick_logo">选择图片</string>
+    <string name="action_clear_logo">移除</string>
+    <string name="hint_line">输入水印文字</string>
+
+    <string name="corner_top_left">左上</string>
+    <string name="corner_top_center">上中</string>
+    <string name="corner_top_right">右上</string>
+    <string name="corner_bottom_left">左下</string>
+    <string name="corner_bottom_center">下中</string>
+    <string name="corner_bottom_right">右下</string>
+
+    <string name="none">无</string>
+    <string name="cd_gallery">相册</string>
+    <string name="gallery_title">相册</string>
+    <string name="gallery_empty">还没有照片\n回到相机按下快门</string>
+    <string name="gallery_load_failed">相册读取失败：%1$s</string>
+    <string name="action_back">返回</string>
+    <string name="action_open_in_gallery">用其他应用打开</string>
+</resources>

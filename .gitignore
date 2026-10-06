@@ -1,0 +1,26 @@
+*.iml
+.gradle/
+.kotlin/
+build/
+captures/
+.externalNativeBuild
+.cxx
+local.properties
+
+# 本地密钥文件的模板请提交（本地 properties.example），
+# 但真实的 secrets.properties 也一起屏蔽掉，以防有用户改用它。
+secrets.properties
+
+# IDE
+.idea/
+*.hprof
+.DS_Store
+
+# Android ProGuard
+proguard-mapping.txt
+
+# 项目根目录下的调试 APK（构建产物拷贝），别推到 GitHub
+/*.apk
+
+# gradle wrapper jar 必须入库，否则别人无法 ./gradlew
+!gradle/wrapper/gradle-wrapper.jar
